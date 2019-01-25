@@ -18,6 +18,9 @@ I5 = double(imread('Image0146.bmp'));
 I6 = double(imread('Image0147.bmp'));
 [M,N] = size(I1);
 
+figure;imshow(abs(I1),[]);
+figure;imshow(abs(I1(256:381,441:560)),[]);
+
 f_I0 = fftshift(fft2(I0));
 f_I1 = fftshift(fft2(I1));f_I2 = fftshift(fft2(I2));f_I3 = fftshift(fft2(I3));
 f_I4 = fftshift(fft2(I4));f_I5 = fftshift(fft2(I5));f_I6 = fftshift(fft2(I6));
@@ -197,7 +200,7 @@ f_Up = fftshift(fft2(Up));
 f_Down = fftshift(fft2(Down));
 
 sf = f_Up + f_Down+f_Left+f_Right;
-figure;imshow(500*abs(sf)./max(max(f_I1)));
+figure;imshow(200*abs(sf)./max(max(f_I1)));
 s = ifft2(sf);
 
 A_s = abs(s);
